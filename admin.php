@@ -1,6 +1,14 @@
 <?php 
 include('check_admin.php');
 include('conn.php'); 
+
+ $username=$_SESSION['username'];
+ $sql=mysqli_query($conn,"SELECT * FROM user WHERE username='$username'");
+ $row = mysqli_fetch_assoc($sql);
+ if($row['type']=='0')
+ {
+    die( Header("Location: home.php"));
+ }
 ?>
 
 <!DOCTYPE html>
