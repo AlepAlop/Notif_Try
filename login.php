@@ -7,7 +7,13 @@ if(isset($_POST["form-username"])){
 	$password = mysqli_real_escape_string($conn, $_POST['form-password']);
 	$success=3;
 
-    if($password == '' && $username != '')// check username
+    if($username == "nak download" || $username == "Nak download")
+    {
+        $success=4;
+        $_SESSION['down']=$username;
+    }
+
+    else if($password == '' && $username != '')// check username
     {
     	$query=mysqli_query($conn, "SELECT * FROM `user` WHERE username='$username'");
     	if(mysqli_num_rows($query) == 0)

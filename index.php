@@ -130,7 +130,23 @@ if(isset($_SESSION['username'])){
             event.preventDefault(); // prevent dri submit secara normal, Let do it in our own way.. 
 
             if(stat == 1){
-                if($('#form-username').val() != ''){
+                if($('#form-username').val() == "Nak download" || $('#form-username').val() == "nak download")
+                {
+                    var form_data = $(this).serialize();
+                    $.ajax({
+                        url:"login.php",
+                        method:"POST",
+                        data:form_data,
+                        dataType:"json",
+                        success:function(data){
+                            if(data.success == 4){
+                                window.location = 'download.php';
+                            }
+                        }
+                    });
+                }
+
+                else if($('#form-username').val() != ''){
                     var form_data = $(this).serialize();
                     $.ajax({
                         url:"login.php",
