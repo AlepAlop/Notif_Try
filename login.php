@@ -45,6 +45,7 @@ if(isset($_POST["form-username"])){
     		else if($row['type'] == 0 )
     		{
     			$success=2;
+                $_SESSION['username']=$row['username'];
     		}
     	}
 	}
