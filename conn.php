@@ -3,9 +3,9 @@
 //MySQLi Procedural
 $conn = mysqli_connect("localhost","root","","notif");
 if (!$conn) {
-	$conn = pg_connect("host=ec2-54-247-95-125.eu-west-1.compute.amazonaws.com dbname=d14pphlglvhq83 user=bdtcmrtidvrxym password=2a668b0109111153548e54319e9ad1b185a1ca66e12df6438de4ac5731615bf7");
+	$conn = mysqli_connect("host=eu-cdbr-west-02.cleardb.net dbname=heroku_ccbf80b0e334f69 user=bd0253e53a1f77 password=3012148e");
 	if(!$conn){
-		die("Connection failed: " . pg_connect_error());
+		die("Connection failed: " . mysqli_connect_error());
 	}
 }
  
