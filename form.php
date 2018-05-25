@@ -17,18 +17,91 @@
     include('_hed.php');
   ?>
   <div class='container'>
-    <div class='panel dialog-panel' style="background-color: #1da1f2;">
-      <div class='panel-heading' style="padding: 0px 15px;">
-        <h5 style="color: #ffffff;">Activity Funding Form</h5>
+    <div class='panel panel-info dialog-panel' >
+      <div class='panel-heading' >
+        <h5 style="color: #31708f;">Activity Funding Form</h5>
       </div>
       <div class='panel-body'>
         <form class='form-horizontal' role='form'>
           <div class='form-group'>
-            <label class='control-label col-md-2 col-md-offset-2' for='course'>Course Code</label>
-            <div class='col-md-2'>
-              <input class='form-control' id='course' placeholder='CS251' type='text'>
+            <label class='control-label col-md-2 col-md-offset-2' for='course'>Department</label>
+              <div class='col-md-4'>
+                  <select class='form-control' id='department'>
+                    <option>Mr</option>
+                    <option>Ms</option>
+                    <option>Mrs</option>
+                    <option>Miss</option>
+                    <option>Dr</option>
+                  </select>
+              </div>
+          </div>
+          <div class='form-group'>
+            <label class='control-label col-md-2 col-md-offset-2' for='id_title'>Course Details</label>
+            <div class='col-md-6'>
+              <div class='col-md-3'>
+                <div class='form-group internal'>
+                  <input class='form-control' id='program' placeholder='Program Code' type='text'>
+                </div>
+              </div>
+              <div class='col-md-3 indent-small'>
+                <div class='form-group internal'>
+                  <input class='form-control' id='course' placeholder='Course Code' type='text'>
+                </div>
+              </div>
             </div>
           </div>
+          <div class='form-group'>
+            <label class='control-label col-md-2 col-md-offset-2' for='id_title'>Program Details</label>
+            <div class='col-md-8'>
+              <div class='form-group'>
+                <div class='col-md-3'>
+                  <div class='input-group'>
+                    <input class="form-control" id="date" name="datestart" placeholder="Start Date" type="text"/>
+                    <span class='input-group-addon'>
+                      <i class='glyphicon glyphicon-calendar'></i>
+                    </span>
+                  </div>
+                </div>
+                <div class='col-md-3'>
+                  <div class='input-group'>
+                    <input class="form-control" id="date" name="dateend" placeholder="End Date" type="text"/>
+                    <span class='input-group-addon'>
+                      <i class='glyphicon glyphicon-calendar'></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class='form-group internal'>
+                <div class='col-md-8'>
+                  <div class='form-group'>
+                    <div class='col-md-6'>
+                      <div class='input-group'>
+                        <input class='form-control' id='id_last_name' type='time'/>
+                        <span class='input-group-addon'>
+                          Start Time
+                        </span>
+                      </div>
+                    </div>
+                    <div class='col-md-3'>
+                      <div class='input-group'>
+                        <input class='form-control' id='id_last_name' type='time'/>
+                        <span class='input-group-addon'>
+                          End Time
+                        </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+              <div class='form-group internal'>
+                <div class='col-md-5'>
+                  <input class='form-control' id='id_last_name' placeholder="Venue" type='text'/>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+
           <div class='form-group'>
             <label class='control-label col-md-2 col-md-offset-2' for='id_title'>Name</label>
             <div class='col-md-8'>
@@ -73,6 +146,7 @@
                   <input class='form-control' id='id_children_free' placeholder='&lt; 2 years' type='number'>
                 </div>
               </div>
+
             </div>
           </div>
           <div class='form-group'>
@@ -95,7 +169,7 @@
             <div class='col-md-8'>
               <div class='col-md-3'>
                 <div class='form-group internal input-group'>
-                  <input class='form-control datepicker' id='id_checkin'>
+                  <input class='form-control' id='date'>
                   <span class='input-group-addon'>
                     <i class='glyphicon glyphicon-calendar'></i>
                   </span>
@@ -169,11 +243,11 @@
             </div>
           </div>
           <div class='form-group'>
-            <div class='col-md-offset-3 col-md-3'>
-              <button class='btn' type='submit' style="color: #ffffff; background-color: #1da1f2">Request Reservation</button>
+            <div class='col-md-offset-5 col-md-1'>
+              <button class='btn' type='submit' style="color: #ffffff; background-color: #1da1f2">Submit</button>
             </div>
-            <div class='col-md-3'>
-              <button class='btn' style='float:right; color: #ffffff; background-color: #ff0000' type='submit'>Cancel</button>
+            <div class='col-md-1'>
+              <button class='btn' style='float:right; color: #ffffff; background-color: #ff0000' type='reset'>reset</button>
             </div>
           </div>
         </form>
@@ -185,6 +259,33 @@
     
 		<div class="container">
   			<div class="row">
+
+<div class="bootstrap-iso">
+ <div class="container-fluid">
+  <div class="row">
+   <div class="col-md-6 col-sm-6 col-xs-12">
+    <form class="form-horizontal" method="post">
+     <div class="form-group ">
+      <label class="control-label col-sm-2" for="date">
+       Date
+      </label>
+      <div class="col-sm-10">
+       <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+      </div>
+     </div>
+     <div class="form-group">
+      <div class="col-sm-10 col-sm-offset-2">
+       <button class="btn btn-primary " name="submit" type="submit">
+        Submit
+       </button>
+      </div>
+     </div>
+    </form>
+   </div>
+  </div>
+ </div>
+</div>
+
     			<span>Display panel: </span>
 				<input name="collapseGroup" type="radio" data-toggle="collapse" data-target=".collapseOne:not(.in)"/> Yes
 				<input name="collapseGroup" type="radio" data-toggle="collapse" data-target=".collapseOne.in" checked/> No
@@ -217,6 +318,19 @@
 <footer class="container-fluid text-center">
   <p>Footer Text</p>
 </footer>
+
+<script>
+  $(document).ready(function(){
+    var date_input=$('input[id="date"]'); //our date input has the name "date"
+    var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+    date_input.datepicker({
+      format: 'mm/dd/yyyy',
+      container: container,
+      todayHighlight: true,
+      autoclose: true,
+    })
+  })
+</script>
 
 <script>
 

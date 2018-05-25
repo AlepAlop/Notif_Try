@@ -6,6 +6,10 @@
 
   ?>
 
+style="background-color: #1da1f2;
+
+style="padding: 0px 15px;"
+
   <style>
     .form-control { padding: 0px 12px;
                     height: 28px;}
