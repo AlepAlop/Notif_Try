@@ -17,11 +17,11 @@
     include('_hed.php');
   ?>
   <div class='container'>
-    <div class='panel panel-info dialog-panel' >
+    <div class='panel panel-info dialog-panel'>
       <div class='panel-heading' >
         <h5 style="color: #31708f;">Activity Funding Form</h5>
       </div>
-      <div class='panel-body'>
+      <div id="main" class='panel-body'>
         <form class='form-horizontal' role='form'>
           <div class='form-group'>
             <label class='control-label col-md-2 col-md-offset-2' for='course'>Department</label>
@@ -121,7 +121,6 @@
               </div>
             </div>
           </div>
-          <div class='panel-body'>
           <div class='form-group'>
             <label class='control-label col-md-2 col-md-offset-2' for='course'>program adviser</label>
               <div class='col-md-4'>
@@ -134,7 +133,29 @@
                 </select>
             </div>
           </div>
-        
+          <div class='form-group internal'>
+            <label class='control-label col-md-2 col-md-offset-2' for='id_comments'>Escort Officer</label>
+            <div class='col-md-6'>
+              <textarea class='form-control' id='id_comments' placeholder='Officer Name' rows='3'></textarea>
+            </div>
+          </div>
+          <div class='form-group'>
+            <label class='control-label col-md-3 col-md-offset-1' for='id_title'>Guest speaker</label>
+            <div class='col-md-6'>
+              <div class='form-group internal'>
+                <div class='col-md-1'>
+                  <input class='form-control' type="checkbox" data-toggle="collapse" data-target="#speaker"> 
+                </div>
+                <label class='control-label col-md-1' for='id_title'>Include</label>
+              </div>
+              <div class='form-group internal'>
+                <div class='col-md-11 collapse' id="speaker">
+                  <input class='form-control' id='id_phone' placeholder='Speaker Name' type='text'>
+                </div>
+              </div>
+            </div>
+          </div>
+
 
           <div class='form-group'>
             <label class='control-label col-md-2 col-md-offset-2' for='id_title'>Name</label>
@@ -294,31 +315,65 @@
 		<div class="container">
   			<div class="row">
 
-<div class="bootstrap-iso">
- <div class="container-fluid">
-  <div class="row">
-   <div class="col-md-6 col-sm-6 col-xs-12">
-    <form class="form-horizontal" method="post">
-     <div class="form-group ">
-      <label class="control-label col-sm-2" for="date">
-       Date
-      </label>
-      <div class="col-sm-10">
-       <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
-      </div>
-     </div>
-     <div class="form-group">
-      <div class="col-sm-10 col-sm-offset-2">
-       <button class="btn btn-primary " name="submit" type="submit">
-        Submit
-       </button>
-      </div>
-     </div>
-    </form>
-   </div>
-  </div>
- </div>
+<input type="radio" name="group1" value="1" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+<input type="radio" name="group1" value="2" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+<input type="radio" name="group1" value="3" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+
+<div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                1. What is HTML?
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body">
+                <p>HTML stands for HyperText Markup Language. HTML is the main markup language for describing the structure of Web pages. <a href="http://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                2. What is Bootstrap?
+            </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+                <p>Bootstrap is a powerful front-end framework for faster and easier web development. It is a collection of CSS and HTML conventions. <a href="http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/" target="_blank">Learn more.</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                3. What is CSS?
+            </h4>
+        </div>
+        <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+                <p>CSS stands for Cascading Style Sheet. CSS allows you to specify various style properties for a given HTML element such as colors, backgrounds, fonts etc. <a href="http://www.tutorialrepublic.com/css-tutorial/" target="_blank">Learn more.</a></p>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
+
+
+<div class="container">
+  <h2>Simple Collapsible</h2>
+  <p>Click on the button to toggle between showing and hiding content.</p>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
+  <div id="demo" class="collapse">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  </div>
+</div>
+
+
 
     			<span>Display panel: </span>
 				<input name="collapseGroup" type="radio" data-toggle="collapse" data-target=".collapseOne:not(.in)"/> Yes

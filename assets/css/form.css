@@ -13,7 +13,7 @@
   z-index: 200 !important;
 }
 
-.panel-body {  
+#main.panel-body {  
   
   background: #e5e5e5; /* Old browsers */
   background: -moz-radial-gradient(center, ellipse cover,  #e5e5e5 0%, #ffffff 100%); /* FF3.6+ */
