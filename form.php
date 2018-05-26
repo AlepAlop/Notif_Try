@@ -88,16 +88,50 @@
                         <span class='input-group-addon'>
                           End Time
                         </span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
               <div class='form-group internal'>
                 <div class='col-md-5'>
                   <input class='form-control' id='id_last_name' placeholder="Venue" type='text'/>
                 </div>
               </div>
+            </div>
+          </div>
+          <div class='form-group'>
+            <label class='control-label col-md-3 col-md-offset-1' for='id_title'>Number of Participants</label>
+            <div class='col-md-6'>
+              <div class='col-md-2'>
+                <div class='form-group internal'>
+                  <input class='form-control' id='program' placeholder='Male' type='number'>
+                </div>
+              </div>
+              <div class='col-md-2 indent-small'>
+                <div class='form-group internal'>
+                  <input class='form-control' id='course' placeholder='Female' type='number'>
+                </div>
+              </div>
+                  <label class='control-label col-md-1' for='id_title'>=</label>
+              <div class='col-md-2 indent-small'>
+                <div class='form-group internal'>
+                  <input class='form-control' id='course' placeholder='Total' type='number'>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='panel-body'>
+          <div class='form-group'>
+            <label class='control-label col-md-2 col-md-offset-2' for='course'>program adviser</label>
+              <div class='col-md-4'>
+                <select class='form-control' id='Staff ID'>
+                  <option selected="selected" disabled>Staff ID</option>
+                  <option>Ms</option>
+                  <option>Mrs</option>
+                  <option>Miss</option>
+                  <option>Dr</option>
+                </select>
             </div>
           </div>
         
