@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <title>A.F.S. (UiTM)</title>
+
   <?php 
     include('_lib.php');
-
   ?>
   <style>
     .form-control { padding: 0px 12px;
@@ -155,6 +156,45 @@
               </div>
             </div>
           </div>
+          <div class='form-group'>
+            <label class='control-label col-md-3 col-md-offset-1' for='id_title'>Facilitator</label>
+            <div class='col-md-6'>
+              <div class='form-group internal'>
+                <div class='col-md-1'>
+                  <input class='form-control' type="checkbox" data-toggle="collapse" data-target="#faciStud"> 
+                </div>
+                <label class='control-label col-md-2' for='id_title'>Student</label>
+                <div class='col-md-1'>
+                  <input class='form-control' type="checkbox" data-toggle="collapse" data-target="#faciStaf"> 
+                </div>
+                <label class='control-label col-md-1' for='id_title'>Staff</label>
+              </div>
+              <div class='form-group'>
+                <div class='col-md-11 collapse' id="faciStud">
+                  <textarea class='form-control' id='faciStud' placeholder='Student Name' rows='2'></textarea>
+                </div>
+              </div>
+              <div class='form-group internal'>
+                <div class='col-md-11 collapse' id="faciStaf">
+                  <textarea class='form-control' id='faciStaf' placeholder='Staff Name' rows='2'></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='form-group'>
+            <label class='control-label col-md-2 col-md-offset-2' for='course'>Estimated Cost</label>
+            <div class='col-md-2'>
+              <div class="input-group">
+                <span class='input-group-addon'>
+                  RM
+                </span>
+                <input class='form-control' id='estiCost' placeholder='Speaker Name' type='number'>
+              </div>
+            </div>
+          </div>
+
+
+
 
 
           <div class='form-group'>
