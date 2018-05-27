@@ -19,5 +19,20 @@
   </div>
 </div>
 
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#but").click(function(){
+        $("#he").toggle();
+    });
+});
+</script>
+
+
+<div class="collapse" id="he">
+<p">This is a paragraph.</p>
+</div>
+
+<button id="but">Toggle between hide() and show()</button>
+
 </body>
 </html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="assets/img/logo.png">
   <title>A.F.S. (UiTM)</title>
 
   <?php 
@@ -95,8 +96,18 @@
                 </div>
               </div>
               <div class='form-group internal'>
-                <div class='col-md-5'>
-                  <input class='form-control' id='id_last_name' placeholder="Venue" type='text'/>
+                <div class='col-md-9'>
+                  <div class='col-md-5'>
+                    <div class="form-group internal">
+                      <input class='form-control' id='id_last_name' placeholder="Venue" type='text'/>
+                    </div>
+                  </div>
+                  <div class="form-group internal">
+                    <label class='control-label col-md-4 indent-small' for='id_title'>Outside Campus</label>
+                    <div class='col-md-1 indent-small'>
+                      <input class='form-control' type="checkbox"> 
+                    </div>  
+                  </div>
                 </div>
               </div>
             </div>
@@ -123,7 +134,7 @@
             </div>
           </div>
           <div class='form-group'>
-            <label class='control-label col-md-2 col-md-offset-2' for='course'>program adviser</label>
+            <label class='control-label col-md-2 col-md-offset-2' for='course'>Program Adviser</label>
               <div class='col-md-4'>
                 <select class='form-control' id='Staff ID'>
                   <option selected="selected" disabled>Staff ID</option>
@@ -141,7 +152,7 @@
             </div>
           </div>
           <div class='form-group'>
-            <label class='control-label col-md-3 col-md-offset-1' for='id_title'>Guest speaker</label>
+            <label class='control-label col-md-3 col-md-offset-1' for='id_title'>Guest Speaker</label>
             <div class='col-md-6'>
               <div class='form-group internal'>
                 <div class='col-md-1'>
@@ -151,32 +162,44 @@
               </div>
               <div class='form-group internal'>
                 <div class='col-md-11 collapse' id="speaker">
-                  <input class='form-control' id='id_phone' placeholder='Speaker Name' type='text'>
+                  <textarea class='form-control' placeholder='Speaker Name' rows='2'></textarea>
                 </div>
               </div>
             </div>
           </div>
           <div class='form-group'>
             <label class='control-label col-md-3 col-md-offset-1' for='id_title'>Facilitator</label>
-            <div class='col-md-6'>
+            <div class='col-md-3'>
               <div class='form-group internal'>
-                <div class='col-md-1'>
+                <div class='col-md-2'>
                   <input class='form-control' type="checkbox" data-toggle="collapse" data-target="#faciStud"> 
                 </div>
-                <label class='control-label col-md-2' for='id_title'>Student</label>
-                <div class='col-md-1'>
+                <label class='control-label col-md-4' for='id_title'>Student</label>
+                <div class='col-md-2'>
                   <input class='form-control' type="checkbox" data-toggle="collapse" data-target="#faciStaf"> 
                 </div>
                 <label class='control-label col-md-1' for='id_title'>Staff</label>
               </div>
-              <div class='form-group'>
-                <div class='col-md-11 collapse' id="faciStud">
-                  <textarea class='form-control' id='faciStud' placeholder='Student Name' rows='2'></textarea>
+            </div>
+            <div class='col-md-7 col-md-offset-4'>
+              <div class='form-group internal'>
+                <div class='col-md-12 collapse' id="faciStud">
+                  <div class='col-md-8'>
+                    <textarea class='form-control' placeholder='Student Name' rows='2'></textarea>
+                  </div>
+                  <div class='col-md-4'>
+                    <input class='form-control' id='course' placeholder='Student Amount' type='number'> 
+                  </div>
                 </div>
               </div>
               <div class='form-group internal'>
-                <div class='col-md-11 collapse' id="faciStaf">
-                  <textarea class='form-control' id='faciStaf' placeholder='Staff Name' rows='2'></textarea>
+                <div class='col-md-12 collapse' id="faciStaf">
+                  <div class='col-md-8'>
+                    <textarea class='form-control' placeholder='Staff Name' rows='2'></textarea>
+                  </div>
+                  <div class='col-md-4'>
+                    <input class='form-control' id='course' placeholder='Staff Amount' type='number'> 
+                </div>
                 </div>
               </div>
             </div>
@@ -188,7 +211,7 @@
                 <span class='input-group-addon'>
                   RM
                 </span>
-                <input class='form-control' id='estiCost' placeholder='Speaker Name' type='number'>
+                <input class='form-control' id='estiCost' placeholder='' type='number'>
               </div>
             </div>
           </div>
