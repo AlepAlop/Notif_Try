@@ -95,7 +95,6 @@
                   </div>
                 </div>
               </div>
-              <p id="cli">Click me.</p>
               <div class='form-group internal'>
                 <div class='col-md-8'>
                   <div class='form-group'>
