@@ -6,7 +6,29 @@
 
   <?php 
     include('_lib.php');
+
+    $Hos_U_P=12.5;
+    $Hos_I_P=10;
+    $Hos_Foo_P=50;
+
+    $Foo_I_M_P=4;
+    $Foo_I_A_P=6;
+    $Foo_I_N_P=6;
+    
+    $Foo_U_O5_P=5;
+    $Foo_U_L5_P=3;
+    $Foo_U_L2_P=0;
+
+    $Sa_P=5;
+    $If_P=10;
+
+    $Spe_O5_P=200;
+    $Spe_L5_P=150;
+
+    $Fasi_Sta_P=25;
+    $Fasi_Stu_P=15;
   ?>
+
   <style>
     .form-control { padding: 0px 12px;
                     height: 28px;}
@@ -29,7 +51,7 @@
             <label class='control-label col-md-2 col-md-offset-2' for='course'>Department</label>
               <div class='col-md-4'>
                   <select class='form-control' id='department'>
-                    <option>Mr</option>
+                    <option selected="selected" disabled>--Department--</option>
                     <option>Ms</option>
                     <option>Mrs</option>
                     <option>Miss</option>
@@ -73,12 +95,13 @@
                   </div>
                 </div>
               </div>
+              <p id="cli">Click me.</p>
               <div class='form-group internal'>
                 <div class='col-md-8'>
                   <div class='form-group'>
                     <div class='col-md-6'>
                       <div class='input-group'>
-                        <input class='form-control' id='id_last_name' type='time'/>
+                        <input class='form-control' name='timestart' id='timestart' type='time'/>
                         <span class='input-group-addon'>
                           Start Time
                         </span>
@@ -86,7 +109,7 @@
                     </div>
                     <div class='col-md-3'>
                       <div class='input-group'>
-                        <input class='form-control' id='id_last_name' type='time'/>
+                        <input class='form-control' name='timeend'id='timeend' type='time'/>
                         <span class='input-group-addon'>
                           End Time
                         </span>
@@ -105,7 +128,7 @@
                   <div class="form-group internal">
                     <label class='control-label col-md-4 indent-small' for='id_title'>Outside Campus</label>
                     <div class='col-md-1 indent-small'>
-                      <input class='form-control' type="checkbox"> 
+                      <input class='form-control' type="checkbox" id="venueC" name="venueC"> 
                     </div>  
                   </div>
                 </div>
@@ -117,18 +140,18 @@
             <div class='col-md-6'>
               <div class='col-md-2'>
                 <div class='form-group internal'>
-                  <input class='form-control' id='program' placeholder='Male' type='number'>
+                  <input class='form-control' id='numL' name='numL' placeholder='Male' type='number'>
                 </div>
               </div>
               <div class='col-md-2 indent-small'>
                 <div class='form-group internal'>
-                  <input class='form-control' id='course' placeholder='Female' type='number'>
+                  <input class='form-control' id='numP' name='numP' placeholder='Female' type='number'>
                 </div>
               </div>
                   <label class='control-label col-md-1' for='id_title'>=</label>
               <div class='col-md-2 indent-small'>
                 <div class='form-group internal'>
-                  <input class='form-control' id='course' placeholder='Total' type='number'>
+                  <input class='form-control' id='numLP' name="numLP" placeholder='Total' type='number' disabled>
                 </div>
               </div>
             </div>
@@ -137,7 +160,7 @@
             <label class='control-label col-md-2 col-md-offset-2' for='course'>Program Adviser</label>
               <div class='col-md-4'>
                 <select class='form-control' id='Staff ID'>
-                  <option selected="selected" disabled>Staff ID</option>
+                  <option selected="selected" disabled>--Staff ID--</option>
                   <option>Ms</option>
                   <option>Mrs</option>
                   <option>Miss</option>
@@ -152,17 +175,43 @@
             </div>
           </div>
           <div class='form-group'>
-            <label class='control-label col-md-3 col-md-offset-1' for='id_title'>Guest Speaker</label>
-            <div class='col-md-6'>
+            <label class='control-label col-md-3 col-md-offset-1' for='id_title'>Transport</label>
+            <div class='col-md-3'>
               <div class='form-group internal'>
-                <div class='col-md-1'>
-                  <input class='form-control' type="checkbox" data-toggle="collapse" data-target="#speaker"> 
+                <label class='control-label col-md-3' for='id_title'>Include</label>
+                <div class='col-md-2'>
+                  <input class='form-control' id='tranC' name='tranC' type="checkbox" data-toggle="collapse" data-target="#tranD"> 
                 </div>
-                <label class='control-label col-md-1' for='id_title'>Include</label>
               </div>
+            </div>
+            <div class='col-md-7 col-md-offset-4'>
+              <div class='form-group collapse' id="tranD">
+                <div class='col-md-8'>
+                  <textarea class='form-control' placeholder='Transport Type' rows='2'></textarea>
+                </div>
+                <div class='col-md-3'>
+                  <input class='form-control' id='course' id="numTran" name="numTran" placeholder='Quantity' type='number'> 
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='form-group'>
+            <label class='control-label col-md-3 col-md-offset-1' for='id_title'>Guest Speaker</label>
+            <div class='col-md-3'>
               <div class='form-group internal'>
-                <div class='col-md-11 collapse' id="speaker">
+                <label class='control-label col-md-3' for='id_title'>Include</label>
+                <div class='col-md-2'>
+                  <input class='form-control' id='speC' name='speC' type="checkbox" data-toggle="collapse" data-target="#speaker"> 
+                </div>
+              </div>
+            </div>
+            <div class='col-md-7 col-md-offset-4'>
+              <div class='form-group collapse' id="speaker">
+                <div class='col-md-8'>
                   <textarea class='form-control' placeholder='Speaker Name' rows='2'></textarea>
+                </div>
+                <div class='col-md-3'>
+                  <input class='form-control' id='course' id="numSpe" name="numSpe" placeholder='Amount' type='number'> 
                 </div>
               </div>
             </div>
@@ -171,14 +220,14 @@
             <label class='control-label col-md-3 col-md-offset-1' for='id_title'>Facilitator</label>
             <div class='col-md-3'>
               <div class='form-group internal'>
+                <label class='control-label col-md-3' for='id_title'>Student</label>
                 <div class='col-md-2'>
-                  <input class='form-control' type="checkbox" data-toggle="collapse" data-target="#faciStud"> 
+                  <input class='form-control' id="stuC" name="stuC" type="checkbox" data-toggle="collapse" data-target="#faciStud"> 
                 </div>
-                <label class='control-label col-md-4' for='id_title'>Student</label>
+                <label class='control-label col-md-2' for='id_title'>Staff</label>
                 <div class='col-md-2'>
-                  <input class='form-control' type="checkbox" data-toggle="collapse" data-target="#faciStaf"> 
+                  <input class='form-control'id="staC" name="staC" type="checkbox" data-toggle="collapse" data-target="#faciStaf"> 
                 </div>
-                <label class='control-label col-md-1' for='id_title'>Staff</label>
               </div>
             </div>
             <div class='col-md-7 col-md-offset-4'>
@@ -199,9 +248,46 @@
                   </div>
                   <div class='col-md-4'>
                     <input class='form-control' id='course' placeholder='Staff Amount' type='number'> 
-                </div>
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <div class='form-group'>
+            <label class='control-label col-md-3 col-md-offset-1' for='id_title'>Other Details</label>
+            <div class='col-md-6'>
+              <div class='form-group internal'>
+                <label class='control-label col-md-1' for='id_title'>Hostel</label>
+                <div class='col-md-1'>
+                  <div class='col-md-13'>
+                    <input class='form-control' name="hoC" id="hoC" type="checkbox"> 
+                  </div>
+                </div>
+                <label class='control-label col-md-1' for='id_title'>Food</label>
+                <div class='col-md-1'>
+                  <div class='col-md-13'>
+                    <input class='form-control' name="foC" id="foC" type="checkbox"> 
+                  </div>
+                </div>
+                <label class='control-label col-md-3 collapse' id="hofo" for='id_title'>Hostel & Food In Package</label>
+                <div class='col-md-1 collapse' id="hofo1">
+                  <div class='col-md-13'>
+                    <input class='form-control' name="hofoC" id="hofoC" type="checkbox"> 
+                  </div>
+                </div>
+                <label class='control-label col-md-2 collapse' id="ram" for='id_title'>Ramadan Package</label>
+                <div class='col-md-1 collapse' id="ram1">
+                  <div class='col-md-13'>
+                    <input class='form-control internal' name="ramC" id="ramC" type="checkbox"> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='form-group'>
+            <label class='control-label col-md-2 col-md-offset-2' for='id_comments'>Summary</label>
+            <div class='col-md-6'>
+              <textarea class='form-control' id='summary' name="summary" placeholder='' rows='8' disabled></textarea>
             </div>
           </div>
           <div class='form-group'>
@@ -213,151 +299,6 @@
                 </span>
                 <input class='form-control' id='estiCost' placeholder='' type='number'>
               </div>
-            </div>
-          </div>
-
-
-
-
-
-          <div class='form-group'>
-            <label class='control-label col-md-2 col-md-offset-2' for='id_title'>Name</label>
-            <div class='col-md-8'>
-              <div class='col-md-2'>
-                <div class='form-group internal'>
-                  <select class='form-control' id='id_title'>
-                    <option>Mr</option>
-                    <option>Ms</option>
-                    <option>Mrs</option>
-                    <option>Miss</option>
-                    <option>Dr</option>
-                  </select>
-                </div>
-              </div>
-              <div class='col-md-3 indent-small'>
-                <div class='form-group internal'>
-                  <input class='form-control' id='id_first_name' placeholder='First Name' type='text'>
-                </div>
-              </div>
-              <div class='col-md-3 indent-small'>
-                <div class='form-group internal'>
-                  <input class='form-control' id='id_last_name' placeholder='Last Name' type='text'>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class='form-group'>
-            <label class='control-label col-md-2 col-md-offset-2' for='id_adults'>Guests</label>
-            <div class='col-md-8'>
-              <div class='col-md-2'>
-                <div class='form-group internal'>
-                  <input class='form-control col-md-8' id='id_adults' placeholder='18+ years' type='number'>
-                </div>
-              </div>
-              <div class='col-md-3 indent-small'>
-                <div class='form-group internal'>
-                  <input class='form-control' id='id_children' placeholder='2-17 years' type='number'>
-                </div>
-              </div>
-              <div class='col-md-3 indent-small'>
-                <div class='form-group internal'>
-                  <input class='form-control' id='id_children_free' placeholder='&lt; 2 years' type='number'>
-                </div>
-              </div>
-
-            </div>
-          </div>
-          <div class='form-group'>
-            <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Contact</label>
-            <div class='col-md-6'>
-              <div class='form-group'>
-                <div class='col-md-11'>
-                  <input class='form-control' id='id_email' placeholder='E-mail' type='text'>
-                </div>
-              </div>
-              <div class='form-group internal'>
-                <div class='col-md-11'>
-                  <input class='form-control' id='id_phone' placeholder='Phone: (xxx) - xxx xxxx' type='text'>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class='form-group'>
-            <label class='control-label col-md-2 col-md-offset-2' for='id_checkin'>Checkin</label>
-            <div class='col-md-8'>
-              <div class='col-md-3'>
-                <div class='form-group internal input-group'>
-                  <input class='form-control' id='date'>
-                  <span class='input-group-addon'>
-                    <i class='glyphicon glyphicon-calendar'></i>
-                  </span>
-                </div>
-              </div>
-              <label class='control-label col-md-2' for='id_checkout'>Checkout</label>
-              <div class='col-md-3'>
-                <div class='form-group internal input-group'>
-                  <input class='form-control datepicker' id='id_checkout'>
-                  <span class='input-group-addon'>
-                    <i class='glyphicon glyphicon-calendar'></i>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class='form-group'>
-            <label class='control-label col-md-2 col-md-offset-2' for='id_equipment'>Equipment type</label>
-            <div class='col-md-8'>
-              <div class='col-md-3'>
-                <div class='form-group internal'>
-                  <select class='form-control' id='id_equipment'>
-                    <option>Travel trailer</option>
-                    <option>Fifth wheel</option>
-                    <option>RV/Motorhome</option>
-                    <option>Tent trailer</option>
-                    <option>Pickup camper</option>
-                    <option>Camper van</option>
-                  </select>
-                </div>
-              </div>
-              <div class='col-md-9'>
-                <div class='form-group internal'>
-                  <label class='control-label col-md-3' for='id_slide'>Slide-outs</label>
-                  <div class='make-switch' data-off-label='NO' data-on-label='YES' id='id_slide_switch'>
-                    <input id='id_slide' type='checkbox' value='chk_hydro' data-toggle="collapse" data-target=".collapseOne:not(.in)"/>
-                    <input id='id_slide' type='checkbox' value='chk_hy'  data-toggle="collapse" data-target=".collapseOne.in" checked/>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class='form-group'>
-            <label class='control-label col-md-2 col-md-offset-2' for='id_email'>Contact</label>
-            <div class='col-md-3'>
-              <input class='form-control' id='id_email' placeholder='E-mail' type='text'>
-            </div>
-          </div>
-          <div class='form-group'>
-            <label class='control-label col-md-2 col-md-offset-2'>Place</label>
-            <div class='col-md-2'>
-              <select class='form-control' name="place">
-                <option>RV</option>
-                <option>Tent</option>
-                <option>Cabin/Lodging</option>
-              </select>
-            </div>
-          </div>
-          <div class='form-group'>
-            <label class='control-label col-md-2 col-md-offset-2' for='id_pets'>Pets</label>
-            <div class='col-md-1'>
-              <div class='make-switch' data-off-label='NO' data-on-label='YES' id='id_pets_switch'>
-                <input id='id_pets' type='checkbox' value='chk_hydro'>
-              </div>
-            </div>
-          </div>
-          <div class='form-group'>
-            <label class='control-label col-md-2 col-md-offset-2' for='id_comments'>Comments</label>
-            <div class='col-md-6'>
-              <textarea class='form-control' id='id_comments' placeholder='Additional comments' rows='3'></textarea>
             </div>
           </div>
           <div class='form-group'>
@@ -373,102 +314,13 @@
     </div>
   </div>
 </div>
-
-    
-		<div class="container">
-  			<div class="row">
-
-<input type="radio" name="group1" value="1" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-<input type="radio" name="group1" value="2" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-<input type="radio" name="group1" value="3" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-
-<div class="panel-group" id="accordion">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                1. What is HTML?
-            </h4>
-        </div>
-        <div id="collapseOne" class="panel-collapse collapse in">
-            <div class="panel-body">
-                <p>HTML stands for HyperText Markup Language. HTML is the main markup language for describing the structure of Web pages. <a href="http://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a></p>
-            </div>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                2. What is Bootstrap?
-            </h4>
-        </div>
-        <div id="collapseTwo" class="panel-collapse collapse">
-            <div class="panel-body">
-                <p>Bootstrap is a powerful front-end framework for faster and easier web development. It is a collection of CSS and HTML conventions. <a href="http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/" target="_blank">Learn more.</a></p>
-            </div>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                3. What is CSS?
-            </h4>
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse">
-            <div class="panel-body">
-                <p>CSS stands for Cascading Style Sheet. CSS allows you to specify various style properties for a given HTML element such as colors, backgrounds, fonts etc. <a href="http://www.tutorialrepublic.com/css-tutorial/" target="_blank">Learn more.</a></p>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-<div class="container">
-  <h2>Simple Collapsible</h2>
-  <p>Click on the button to toggle between showing and hiding content.</p>
-  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
-  <div id="demo" class="collapse">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  </div>
-</div>
-
-
-
-    			<span>Display panel: </span>
-				<input name="collapseGroup" type="radio" data-toggle="collapse" data-target=".collapseOne:not(.in)"/> Yes
-				<input name="collapseGroup" type="radio" data-toggle="collapse" data-target=".collapseOne.in" checked/> No
-				<div class="panel-group" id="accordion">
-  					<div class="panel panel-default">
-          				<div class="panel-heading">
-            				<h4 class="panel-title">
-                    			Header
-                			</h4>
-          				</div>
-          				<div class="collapseOne panel-collapse collapse">
-            				<div class="panel-body">
-              					<p>Content</p>
-            				</div>
-          				</div>
-        			</div>
-      			</div>
-			</div>
-		</div>
-
-      <h1>Welcome</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <hr>
-      <h3>Test</h3>
-      <p>Lorem ipsum...</p>
-    </div>
-  </div>
-</div>
-
 <footer class="container-fluid text-center">
-  <p>Footer Text</p>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+        <p>Activity & Funding System (A.F.S) - Universiti Teknologi Mara (UiTM)</p>
+        <p class="h6" style="color: #b1afaf;">&copy All right Reversed <i>by Alif Fitri</i>.</p>
+      </div>
+    </div>
 </footer>
 
 <script>
@@ -483,13 +335,233 @@
     })
   })
 </script>
-
 <script>
-
-  var element = document.getElementById("navForm");
+  var element = document.getElementById("navApply");
   element.classList.add("active");
-
 </script>
 
 </body>
+<script type="text/javascript">
+var Total=0;
+var Days;
+var Hours;
+var numP;
+var numL;
+var numLP;
+var mssg;
+var t=false;
+
+var Hos_U_P = parseInt(<?php echo "'$Hos_U_P'"; ?>);
+var Hos_I_P = parseInt(<?php echo "'$Hos_I_P'"; ?>);
+var Hos_Foo_P = parseInt(<?php echo "'$Hos_Foo_P'"; ?>);
+
+var Foo_I_M_P = parseInt(<?php echo "'$Foo_I_M_P'"; ?>);
+var Foo_I_A_P = parseInt(<?php echo "'$Foo_I_A_P'"; ?>);
+var Foo_I_N_P = parseInt(<?php echo "'$Foo_I_N_P'"; ?>);
+    
+var Foo_U_O5_P = parseInt(<?php echo "'$Foo_U_O5_P'"; ?>);
+var Foo_U_L5_P = parseInt(<?php echo "'$Foo_U_L5_P'"; ?>);
+var Foo_U_L2_P = parseInt(<?php echo "'$Foo_U_L2_P'"; ?>);
+
+var Sa_P = parseInt(<?php echo "'$Sa_P'"; ?>);
+var If_P = parseInt(<?php echo "'$If_P'"; ?>);
+
+var Spe_O5_P = parseInt(<?php echo "'$Spe_O5_P'"; ?>);
+var Spe_L5_P = parseInt(<?php echo "'$Spe_L5_P'"; ?>);
+
+var Fasi_Sta_P = parseInt(<?php echo "'$Fasi_Sta_P'"; ?>);
+var Fasi_Stu_P = parseInt(<?php echo "'$Fasi_Stu_P'"; ?>);
+
+  document.getElementById("cli").onclick = function() {calAll()};
+  function calAll() {
+
+    numP = parseInt($('input[name=numP]').val());
+    numL = parseInt($('input[name=numL]').val());
+    numLP = numL+numP;
+    numSpe = parseInt($('input[name=numSpe]').val());
+
+
+    document.getElementById("cli").innerHTML = "YOU CLICKED ME!";
+    var data1 = $('input[name=dateend]').val();
+    var data2 = $('input[name=datestart]').val();
+    var date1 = new Date(data1);
+    var date2 = new Date(data2);
+    var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+    Days = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    var valuestart = $('input[name=timestart]').val();
+    var valuestop = $('input[name=timeend]').val();
+    Hours=6;
+    if(Days==0){
+      Days=1;
+      Hours = parseInt($('input[name=timeend]').val().split(':')[0], 10) - parseInt($('input[name=timestart]').val().split(':')[0], 10);
+      if(Hours < 0) Hours = 12 + Hours;
+      document.getElementById('numLP').value=numLP;
+      //alert(Days+' Days '+Hours+' Hours');
+    }
+    else{
+      
+      document.getElementById('numLP').value=numLP;
+      //alert(Days+' Days '+Hours+' Hours '+numLP+' numLP :'+Total+' Total');
+    }
+  }
+
+   function calAll2() {
+    Total=0;
+    mssg=" ";
+    var venueC = document.getElementById("venueC");
+    var speC = document.getElementById("speC");
+    var stuC = document.getElementById("stuC");
+    var staC = document.getElementById("staC");
+    var hoC = document.getElementById("hoC");
+    var foC = document.getElementById("foC");
+    var hofoC = document.getElementById("hofoC");
+    var ramC = document.getElementById("ramC");
+    var venueC1;
+    var speC1;
+    var stuC1;
+    var staC1;
+    var hoC1;
+    var foC1;
+    var hofoC1;
+    var ramC1;
+    if (venueC.checked == true){venueC1=true;}
+    else{venueC1=false;}
+    if (speC.checked == true){speC1=true;}
+    else{speC1=false;}
+    if (stuC.checked == true){stuC1=true;}
+    else{stuC1=false;}    
+    if (staC.checked == true){staC1=true;}
+    else{staC1=false;}
+    if (hoC.checked == true){hoC1=true;}
+    else{hoC1=false;}
+    if (foC.checked == true){foC1=true;}
+    else{foC1=false;}
+    if (hofoC.checked == true){hofoC1=true;}
+    else{hofoC1=false;}
+    if (ramC.checked == true){ramC1=true;}
+    else{ramC1=false;}
+
+    if(venueC1 != true && hoC1==true && hofoC1!=true)
+    {//1
+      var tot=tot+(Days*Hos_U_P*numLP);
+      Total=Total+tot;
+      mssg="Hostel:\nUiTM Room: RM"+Hos_U_P+" x "+Days+" days x "+numLP+" students = RM"+tot;
+    }
+    if(venueC1 == true && hoC1==true && hofoC1!=true)
+    {//2
+      var tot=tot+(Days*Hos_I_P*numLP);
+      Total=Total+tot;
+      mssg="Hostel:\nOutside UiTM: RM"+Hos_I_P+" x "+Days+" days x "+numLP+" students = RM"+tot;
+    }
+    if(foC1 == true && hoC1==true && hofoC1==true)
+    {//3
+      var tot=tot+(Days*Hos_Foo_P*numLP);
+      Total=Total+tot;
+      mssg="Hostel & Food (Package):\nRM"+Hos_Foo_P+" x "+Days+" days x "+numLP+" students = RM"+tot;
+    }
+    if(foC1 == true && venueC1 == true && hofoC1!=true && ramC1 != true)
+    {//4
+      var tot=tot+((Days*Foo_I_M_P*numLP)+(Days*Foo_I_A_P*numLP)+(Days*Foo_I_N_P*numLP));
+      Total=Total+tot;
+      mssg=mssg+"\n"+"Student Elaun:\n Outside UiTM\n Brakefast: RM"+Foo_I_M_P+" x "+Days+" days x "+numLP+" students\n Lunch: RM"+Foo_I_A_P+" x "+Days+" days x "+numLP+" students\n Dinner: RM"+Foo_I_N_P+" x "+Days+" days x "+numLP+" students = RM"+tot;
+    }
+    if(foC1 == true && venueC1 != true && hofoC1!=true && ramC1 != true)
+    {//567
+      if(Hours>=5){
+        var tot=(Days*Foo_U_O5_P*numLP);
+        Total=Total+tot;
+        mssg=mssg+"\n"+"Student Elaun:\n Inside UiTM Activity More 5 Hours: RM"+Foo_U_O5_P+" x "+Days+" days x "+numLP+" students = RM"+tot;
+      }
+      else if(Hours<5 && Hours >= 2){
+        var tot=(Days*Foo_U_L5_P*numLP);
+        Total=Total+tot;
+        mssg=mssg+"\n"+"Student Elaun:\n Inside UiTM Activity Less 5 Hours: RM"+Foo_U_L5_P+" x "+Days+" days x "+numLP+" students = RM"+tot;
+      }
+      else if(Hours<2){
+        var tot=(Days*Foo_U_L2_P*numLP);
+        Total=Total+tot;
+        mssg=mssg+"\n"+"Student Elaun:\n Inside UiTM Activity Less 2 Hours: RM"+Foo_U_L2_P+" x "+Days+" days x "+numLP+" students = RM"+tot;
+      }
+    }
+    if(foC1 == true && venueC1 != true && hofoC1!=true && ramC1 == true)
+    {//8
+      mssg=mssg+"\n"+8;
+    }
+    if(speC1 == true)
+    {//910-------------
+      mssg=mssg+"\n"+910;
+    }
+    if(stuC1 == true || staC1 == true)
+    {//1112--------------
+      mssg=mssg+"\n"+1112;
+    }
+    document.getElementById('summary').value=mssg;
+    
+    if(hoC1 == true && foC1 == true)
+    {
+      var a = document.getElementById("ram");
+      a.classList.remove("collapse");
+      var b = document.getElementById("ram1");
+      b.classList.remove("collapse");
+      var c = document.getElementById("hofo1");
+      c.classList.remove("collapse");
+      var d = document.getElementById("hofo");
+      d.classList.remove("collapse");
+      t=true;
+    }
+    else if(t == true){
+      var a = document.getElementById("ram");
+      a.classList.add("collapse");
+      var b = document.getElementById("ram1");
+      b.classList.add("collapse");
+      var c = document.getElementById("hofo1");
+      c.classList.add("collapse");
+      var d = document.getElementById("hofo");
+      d.classList.add("collapse");
+      document.getElementById("ramC").checked=false;
+      document.getElementById("hofoC").checked=false;
+
+      t=false;
+    }
+
+    if(hofoC1==true  && ramC1 != true){
+      var b = document.getElementById("ram1");
+      b.classList.add("collapse");
+      var c = document.getElementById("ram");
+      c.classList.add("collapse");
+    }
+    if(hofoC1!=true  && ramC1 == true){
+      var b = document.getElementById("hofo");
+      b.classList.add("collapse");
+      var c = document.getElementById("hofo1");
+      c.classList.add("collapse");
+    }
+  }
+
+document.getElementById("venueC").onclick = function() {calAll2()};
+document.getElementById("speC").onclick = function() {calAll2()};
+document.getElementById("stuC").onclick = function() {calAll2()};
+document.getElementById("staC").onclick = function() {calAll2()};
+document.getElementById("hoC").onclick = function() {calAll2()};
+document.getElementById("foC").onclick = function() {calAll2()};
+document.getElementById("hofoC").onclick = function() {calAll2()};
+document.getElementById("ramC").onclick = function() {calAll2()};
+  
+
+setInterval(function(){ calAll(); }, 1000);
+
+function check(){
+  var venueC = document.getElementById("local");
+    if (venueC.checked == true){
+
+      var abc = parseInt(<?php echo "'$Hos_I_P'"; ?>);
+      var abcd = 1+abc;
+      alert(abcd);
+    }
+  }
+  
+</script>
+
+
+
 </html>

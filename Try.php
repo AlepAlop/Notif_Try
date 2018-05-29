@@ -25,8 +25,48 @@ $(document).ready(function(){
         $("#he").toggle();
     });
 });
+
+
+alert(<?php echo "'$abc'"; ?>);//php to java
+var abc = parseInt(<?php echo "'$abc'"; ?>); //get from php cnvert to int
+
+
+
+
 </script>
 
+
+
+
+
+          <span>Display panel: </span>
+        <input name="collapseGroup" type="radio" data-toggle="collapse" data-target=".collapseOne:not(.in)"/> Yes
+        <input name="collapseGroup" type="radio" data-toggle="collapse" data-target=".collapseOne.in" checked/> No
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                          Header
+                      </h4>
+                  </div>
+                  <div class="collapseOne panel-collapse collapse">
+                    <div class="panel-body">
+                        <p>Content</p>
+                    </div>
+                  </div>
+              </div>
+            </div>
+      </div>
+    </div>
+
+      <h1>Welcome</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <hr>
+      <h3>Test</h3>
+      <p>Lorem ipsum...</p>
+    </div>
+  </div>
+</div>
 
 <div class="collapse" id="he">
 <p">This is a paragraph.</p>

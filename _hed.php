@@ -13,40 +13,12 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-      <li id="navForm"><a href="javascript:void(0)">Form</a></li>
-      <li id="navView"><a href="javascript:void(0)">View</a></li>
-      <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      <li class="dropdown">
-        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-        <ul class="dropdown-menu">
-          <li><a href="javascript:void(0)">Action</a></li>
-          <li><a href="javascript:void(0)">Another action</a></li>
-          <li><a href="javascript:void(0)">Something else here</a></li>
-          <li class="divider"></li>
-          <li><a href="javascript:void(0)">Separated link</a></li>
-        </ul>
-      </li>
+      <li id="navHome"><a href="index.php">Home</a></li>
+      <li id="navApply"><a href="form.php">Apply</a></li>
+      <li id="navApp"><a href="app.php">Application</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-    <form class="navbar-form navbar-left" role="search">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search"  style="height: 34px;">
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-      <li><a href="javascript:void(0)"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="index.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="signin.php"><span class="glyphicon glyphicon-log-in"></span> E-Panel</a></li>
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>
