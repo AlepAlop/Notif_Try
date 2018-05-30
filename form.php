@@ -5,28 +5,9 @@
   <title>A.F.S. (UiTM)</title>
 
   <?php 
+    include('conn.php');
     include('_lib.php');
-
-    $Hos_U_P=12.5;
-    $Hos_I_P=10;
-    $Hos_Foo_P=50;
-
-    $Foo_I_M_P=4;
-    $Foo_I_A_P=6;
-    $Foo_I_N_P=6;
-    
-    $Foo_U_O5_P=5;
-    $Foo_U_L5_P=3;
-    $Foo_U_L2_P=0;
-
-    $Sa_P=5;
-    $If_P=10;
-
-    $Spe_O5_P=200;
-    $Spe_L5_P=150;
-
-    $Fasi_Sta_P=25;
-    $Fasi_Stu_P=15;
+    include('_val.php');
   ?>
 
   <style>
@@ -124,6 +105,7 @@
                       <input class='form-control' id='id_last_name' placeholder="Venue" type='text'/>
                     </div>
                   </div>
+                  <p id="cli">click Me</p>
                   <div class="form-group internal">
                     <label class='control-label col-md-4 indent-small' for='id_title'>Outside Campus</label>
                     <div class='col-md-1 indent-small'>
@@ -341,6 +323,7 @@
 
 </body>
 <script type="text/javascript">
+var tot=0;
 var Total=0;
 var Days;
 var Hours;
@@ -406,7 +389,7 @@ var Fasi_Stu_P = parseInt(<?php echo "'$Fasi_Stu_P'"; ?>);
 
    function calAll2() {
     Total=0;
-    mssg=" ";
+    mssg="";
     var venueC = document.getElementById("venueC");
     var speC = document.getElementById("speC");
     var stuC = document.getElementById("stuC");
@@ -442,42 +425,49 @@ var Fasi_Stu_P = parseInt(<?php echo "'$Fasi_Stu_P'"; ?>);
 
     if(venueC1 != true && hoC1==true && hofoC1!=true)
     {//1
-      var tot=tot+(Days*Hos_U_P*numLP);
+      tot=0;
+      tot=tot+(Days*Hos_U_P*numLP);
       Total=Total+tot;
-      mssg="Hostel:\nUiTM Room: RM"+Hos_U_P+" x "+Days+" days x "+numLP+" students = RM"+tot;
+      mssg="Hostel:\n UiTM Room: RM"+Hos_U_P+" x "+Days+" days x "+numLP+" students = RM"+tot;
     }
     if(venueC1 == true && hoC1==true && hofoC1!=true)
     {//2
-      var tot=tot+(Days*Hos_I_P*numLP);
+      tot=0;
+      tot=tot+(Days*Hos_I_P*numLP);
       Total=Total+tot;
-      mssg="Hostel:\nOutside UiTM: RM"+Hos_I_P+" x "+Days+" days x "+numLP+" students = RM"+tot;
+      mssg="Hostel:\n Outside UiTM: RM"+Hos_I_P+" x "+Days+" days x "+numLP+" students = RM"+tot;
     }
     if(foC1 == true && hoC1==true && hofoC1==true)
     {//3
-      var tot=tot+(Days*Hos_Foo_P*numLP);
+      tot=0;
+      tot=tot+(Days*Hos_Foo_P*numLP);
       Total=Total+tot;
-      mssg="Hostel & Food (Package):\nRM"+Hos_Foo_P+" x "+Days+" days x "+numLP+" students = RM"+tot;
+      mssg="Hostel & Food (Package):\n RM"+Hos_Foo_P+" x "+Days+" days x "+numLP+" students = RM"+tot;
     }
     if(foC1 == true && venueC1 == true && hofoC1!=true && ramC1 != true)
     {//4
-      var tot=tot+((Days*Foo_I_M_P*numLP)+(Days*Foo_I_A_P*numLP)+(Days*Foo_I_N_P*numLP));
+      tot=0;
+      tot=tot+((Days*Foo_I_M_P*numLP)+(Days*Foo_I_A_P*numLP)+(Days*Foo_I_N_P*numLP));
       Total=Total+tot;
       mssg=mssg+"\n"+"Student Elaun:\n Outside UiTM\n Brakefast: RM"+Foo_I_M_P+" x "+Days+" days x "+numLP+" students\n Lunch: RM"+Foo_I_A_P+" x "+Days+" days x "+numLP+" students\n Dinner: RM"+Foo_I_N_P+" x "+Days+" days x "+numLP+" students = RM"+tot;
     }
     if(foC1 == true && venueC1 != true && hofoC1!=true && ramC1 != true)
     {//567
       if(Hours>=5){
-        var tot=(Days*Foo_U_O5_P*numLP);
+        tot=0;
+        tot=(Days*Foo_U_O5_P*numLP);
         Total=Total+tot;
         mssg=mssg+"\n"+"Student Elaun:\n Inside UiTM Activity More 5 Hours: RM"+Foo_U_O5_P+" x "+Days+" days x "+numLP+" students = RM"+tot;
       }
       else if(Hours<5 && Hours >= 2){
-        var tot=(Days*Foo_U_L5_P*numLP);
+        tot=0;
+        tot=(Days*Foo_U_L5_P*numLP);
         Total=Total+tot;
         mssg=mssg+"\n"+"Student Elaun:\n Inside UiTM Activity Less 5 Hours: RM"+Foo_U_L5_P+" x "+Days+" days x "+numLP+" students = RM"+tot;
       }
       else if(Hours<2){
-        var tot=(Days*Foo_U_L2_P*numLP);
+        tot=0;
+        tot=(Days*Foo_U_L2_P*numLP);
         Total=Total+tot;
         mssg=mssg+"\n"+"Student Elaun:\n Inside UiTM Activity Less 2 Hours: RM"+Foo_U_L2_P+" x "+Days+" days x "+numLP+" students = RM"+tot;
       }
@@ -494,6 +484,9 @@ var Fasi_Stu_P = parseInt(<?php echo "'$Fasi_Stu_P'"; ?>);
     {//1112--------------
       mssg=mssg+"\n"+1112;
     }
+
+    if(mssg=="") mssg="TOTAL = RM"+Total;
+    else mssg=mssg+"\n"+"TOTAL = RM"+Total;
     document.getElementById('summary').value=mssg;
     
     if(hoC1 == true && foC1 == true)

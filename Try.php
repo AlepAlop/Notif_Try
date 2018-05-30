@@ -32,7 +32,7 @@ var abc = parseInt(<?php echo "'$abc'"; ?>); //get from php cnvert to int
 
 
 
-
+document.getElementById("cli").innerHTML = "YOU CLICKED ME!";//set value
 </script>
 
 
