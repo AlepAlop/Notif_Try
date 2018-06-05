@@ -2,6 +2,17 @@
     include('conn.php');
     include('_lib.php');
 
+    $mail = new PHPMailer();
+$mail->IsSMTP();
+$mail->CharSet = 'UTF-8';
+
+$mail->Host       = "smtp.mailtrap.io"; // SMTP server example
+$mail->SMTPDebug  = 0;                     // enables SMTP debug information (for testing)
+$mail->SMTPAuth   = true;                  // enable SMTP authentication
+$mail->Port       = 25;                    // set the SMTP port for the GMAIL server
+$mail->Username   = "6d85e84f07fbe2"; // SMTP account username example
+$mail->Password   = "cda0b4007cb115"; 
+
 $name = "Alep";
 $to = "damaix1@gmail.com";
 $status = "Approved";
@@ -43,7 +54,7 @@ $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 $headers .= 'From: UiTM-Activity & Funding System (A.F.S) <	6d85e84f07fbe2>' . "\r\n";
 $headers .= 'Cc: 	6d85e84f07fbe2' . "\r\n";
 $mail = mail($to,$subject,$message,$headers);
-echo "hello" ;
+echo "hello2" ;
 if(!$mail) {
 echo '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error sending email !</div>';
 } else {
