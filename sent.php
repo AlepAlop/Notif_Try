@@ -40,8 +40,8 @@ $message .= "</body></html>";
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 // More headers
-$headers .= 'From: UiTM-Activity & Funding System (A.F.S) <syamimshafie70@gmail.com>' . "\r\n";
-$headers .= 'Cc: syamimshafie70@gmail.com' . "\r\n";
+$headers .= 'From: UiTM-Activity & Funding System (A.F.S) <app90016621@gheroku.com>' . "\r\n";
+$headers .= 'Cc: app90016621@gheroku.com' . "\r\n";
 $mail = mail($to,$subject,$message,$headers);
 if(!$mail) {
 echo '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error sending email !</div>';
