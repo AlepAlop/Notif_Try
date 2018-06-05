@@ -2,18 +2,6 @@
     include('conn.php');
     include('_lib.php');
 
-function mailtrap($phpmailer) {
-  $phpmailer->isSMTP();
-  $phpmailer->Host = 'smtp.mailtrap.io';
-  $phpmailer->SMTPAuth = true;
-  $phpmailer->Port = 2525;
-  $phpmailer->Username = '6d85e84f07fbe2';
-  $phpmailer->Password = 'cda0b4007cb115';
-}
-
-add_action('phpmailer_init', 'mailtrap');
-
-
 $name = "Alep";
 $to = "damaix1@gmail.com";
 $status = "Approved";
@@ -54,8 +42,8 @@ $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 // More headers
 $headers .= 'From: UiTM-Activity & Funding System (A.F.S) <app90016621@gheroku.com>' . "\r\n";
 $headers .= 'Cc: app90016621@gheroku.com' . "\r\n";
-$mail = mailtrap($to,$subject,$message,$headers);
-echo "hello";
+$mail = mail($to,$subject,$message,$headers);
+echo "hello" ;
 if(!$mail) {
 echo '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error sending email !</div>';
 } else {
