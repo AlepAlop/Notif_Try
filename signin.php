@@ -60,11 +60,10 @@ if(isset($_SESSION['username'])){
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>Demo of Notification System</strong></h1>
+                            <h1><strong>E - PANEL</strong></h1>
                             <div class="description">
                             	<p>
-	                            	Ini adalah demo sistem notifikasi dengan menggunakan AJAX, javascript, font awesome dan bootstrap. 
-                                    Downloadlah dari <a href="#"><strong>ALIF</strong></a>, dan ubahlah sesuka hati anda!
+	                            	
                             	</p>
                             </div>
                         </div>
@@ -74,7 +73,7 @@ if(isset($_SESSION['username'])){
                         	<div class="form-top">
                         		<div class="form-top-left">
                         			<h3>Login</h3>
-                            		<p id="usernamereminder">Enter your username</p>
+                            		<p id="usernamereminder">Enter your staff number</p>
                                     <p id="passwordreminder">Enter your password</p>
                         		</div>
                         		<div class="form-top-right">
@@ -84,7 +83,7 @@ if(isset($_SESSION['username'])){
                             <div class="form-bottom">
 			                    <form role="form" action="" method="POST" class="login-form" id="login_form">
 			                    	<div class="form-group">
-			                    		<label class="sr-only" for="form-username">Username</label>
+			                    		<label class="sr-only" for="form-username">Staff Number</label>
 			                        	<input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username" autofocus="">
 			                        </div>
 			                        <div class="form-group" id ="pass">

@@ -34,15 +34,15 @@ $line_chart_data=array(
                     array("Mar",1095.50),
                     array("Apr",2300.50),
                     array("May",2600.80),
-                    array("Jun",3650)),
-                array(
+                    array("Jun",3650))
+                    );
+array_push($line_chart_data,array(
                     array("Jan",2056.25),
                     array("Feb",1025.75),
                     array("Mar",3044.50),
                     array("Apr",2099.50),
                     array("May",1050.80),
-                    array("Jun",3070))
-                    ); 
+                    array("Jun",3070)));
 
 // data array is populated from example data file
 $p->data = $line_chart_data; 

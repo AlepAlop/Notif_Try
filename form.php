@@ -363,7 +363,7 @@ var Fasi_Stu_P = parseInt(<?php echo "'$Fasi_Stu_P'"; ?>);
     numSpe = parseInt($('input[name=numSpe]').val());
 
 
-    document.getElementById("cli").innerHTML = "YOU CLICKED ME!";
+    document.getElementById("cli").innerHTML = "";
     var data1 = $('input[name=dateend]').val();
     var data2 = $('input[name=datestart]').val();
     var date1 = new Date(data1);
