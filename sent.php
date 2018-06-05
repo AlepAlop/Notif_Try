@@ -47,7 +47,10 @@ echo "hello" ;
 if(!$mail) {
 echo '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error sending email !</div>';
 } else {
-echo '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Your email was sent successfully..</div>';}
+echo '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Your email was sent successfully..</div>';
+	$errorMessage = error_get_last()['message'];
+	echo $errorMessage;
+	}
 ?>
 <head>
 	
